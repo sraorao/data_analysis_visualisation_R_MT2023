@@ -27,8 +27,8 @@ new_year = "2021-01-01"
 plot(x = owid_covid_uk$date, y = owid_covid_uk$total_cases_per_million, type = "l", col = "red")
 
 # The same plot with ggplot2 (we are passing mapping argument to the ggplot function)
-ggplot(data = owid_covid_uk, mapping = aes(x = date, y = total_cases_per_million)) +
-  geom_line()
+ggplot(data = owid_covid_uk, mapping = aes(x = date, y = total_deaths_per_million)) +
+  geom_line(mapping = aes(x = date, y = total_cases_per_million))
 
 # the above code does the same as the following (we are passing mapping argument to the geom function)
 ggplot(data = owid_covid_uk) +
@@ -38,7 +38,7 @@ ggplot(data = owid_covid_uk) +
 # let's change the colour of the line to red (this is not an aesthetic, i.e., 
 # the colour is not derived from the dataset itself)
 ggplot(data = owid_covid_uk) +
-  geom_line(mapping = aes(x = date, y = total_cases_per_million), colour = "blue") 
+  geom_line(mapping = aes(x = date, y = total_cases_per_million), colour = "lightblue") 
 
 # let's add new data, total_deaths_per_million as a differently coloured line
 ggplot(data = owid_covid_uk) +
@@ -74,11 +74,11 @@ owid_covid %>%
 # NOTE: the following will NOT work, it will give an error
 owid_covid_4countries %>%
   ggplot() +
-  geom_line(mapping = aes(x = date, y = total_deaths_per_million), colour = location)
+  geom_line(mapping = aes(x = date, y = total_deaths_per_million, colour = location))
 
 # Q: What is the difference between the following two lines? Without running the code,
 # can you tell which one will give you the expected result?
-ggplot(iris) + geom_point(mapping = aes(x = Sepal.Length, y = Petal.Length, colour = "blue"))
+ggplot(iris) + geom_point(mapping = aes(x = Sepal.Length, y = Petal.Length, colour = "purple"))
 
 ggplot(iris) + geom_point(mapping = aes(x = Sepal.Length, y = Petal.Length), colour = "blue")
 

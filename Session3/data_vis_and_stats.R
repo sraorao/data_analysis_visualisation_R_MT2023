@@ -136,7 +136,7 @@ ggplot(cyto_melted, aes(group=Randomisation, y=value, x=cytokine)) +
   ylab("Cytokine concentration") +
   stat_summary(
     fun.data="mean_sdl",  fun.args = list(mult=1), 
-    geom = "pointrange",  size = 0.4,
+    geom = "pointrange",  size = 0.4, alpha = 0.5, shape = 21,
     position = position_dodge(0.5), show.legend = FALSE) +
   stat_pvalue_manual(stat.test, label = "p.adj.signif", tip.length = 0,hide.ns = TRUE, inherit.aes = FALSE, y.position = 3)
 

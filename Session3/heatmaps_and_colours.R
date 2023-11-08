@@ -6,7 +6,7 @@ library(RColorBrewer)
 # LOAD and prepare data from files ####
 # we first make a list of filenames of interest using the list.files() function
 filenames = list.files(path = "Session3/data", pattern = "counts.txt", full.names = TRUE)
-
+filenames
 # we then use lapply(), which is similar to a for() loop
 # to read the tab separated table of count data
 # so that we get a list of data.frames in count_data_list
